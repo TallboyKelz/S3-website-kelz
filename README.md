@@ -1,4 +1,4 @@
-<img width="1385" alt="Screenshot 2024-05-21 at 2 55 40 PM" src="https://github.com/TallboyKelz/S3-website-kelz/assets/133192420/6e883658-f27a-4120-a805-e21977d588b3"># Overview
+# Overview
 This documentation will provide an overview of hosting a static website using AWS's S3. 
 
 # Prerequisites
