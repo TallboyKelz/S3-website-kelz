@@ -38,7 +38,7 @@ This documentation will provide an overview of hosting a static website using AW
 # Permissions
 Now, we have to set a policy for the bucket to make it publicly accessible over the internet. To do this:
 1. Go to the "Permissions" tab.
-Click "Bucket Policy" and paste the following code for the policy.
+Click "Bucket Policy". Copy and paste the code found in the 'bucket-policy file'. 
 
 
 
