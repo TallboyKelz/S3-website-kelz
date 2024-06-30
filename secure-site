@@ -1,0 +1,67 @@
+Secure the website using CloudFront
+
+Objective:
+The idea is to use SSL/TLS Termination. Clients will connect to Cloudfront using HTTPS (secure connection) and connect to our website endpoint using HTTP.
+
+Prerequisites:
+Your static website files (HTML, CSS, JavaScript, images, etc.) must already be uploaded to an S3 bucket.
+You should have an SSL/TLS certificate ready in AWS Certificate Manager (ACM) for your custom domain, if using one but since geting a custom domain costs money and we are using the free tier, we will use the endpoint of our s3 bucket instead of registering a custom domain on Route 53.
+
+Create a CloudFront Distribution
+Open the CloudFront Console:
+
+Go to the AWS Management Console and navigate to the CloudFront service.
+Create a Distribution:
+
+Click on "Create Distribution".
+Choose "Web" as the delivery method (it's the default).
+Click "Get Started".
+
+Configure the Distribution:
+
+Origin Settings:
+
+Origin Domain Name: Select your S3 bucket from the dropdown list ().
+
+
+Viewer Protocol Policy: Select "Redirect HTTP to HTTPS" to enforce HTTPS.
+
+Allowed HTTP Methods: Choose "GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE" to allow necessary HTTP methods.
+
+Distribution Settings:
+
+Alternate Domain Names (CNAMEs): Enter your custom domain name - We wont use this
+
+SSL Certificate: We wont use this.
+
+Create the Distribution:
+
+Click "Create Distribution" at the bottom of the page.
+
+
+Step 3: Testing and Validation
+Wait for Deployment:
+
+It may take some time (typically up to 15-30 minutes) for CloudFront to deploy globally.
+Testing:
+
+Access your website using the CloudFront domain name 
+
+Ensure your website loads correctly over HTTPS.
+
+Test different pages and functionality to confirm everything works as expected.
+
+Step 4: Additional Security Considerations
+Origin Access Identity (OAI):
+
+Optionally, configure an OAI to restrict access to your S3 bucket directly and only allow access through CloudFront.
+
+Security Headers:
+
+Consider adding security headers (e.g., Content Security Policy, X-Content-Type-Options, etc.) to enhance security.
+Monitoring and Logging:
+
+Enable CloudFront access logs and monitor for any security-related events or anomalies.
+
+
+
