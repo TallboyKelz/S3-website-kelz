@@ -8,7 +8,7 @@ We already have a website being hosted in a S3 bucket.
 Ideally, you should have an SSL/TLS certificate ready in AWS Certificate Manager (ACM) for your custom domain, but getting a custom domain costs money and since we are using the free tier, we will use the endpoint of our s3 bucket instead of registering a custom domain on Route 53.
 
 CREATE THE CLOUDFRONT DISTRIBUTION
-* Open the CloudFront Console,go to the AWS Management Console, and navigate to the CloudFront service. 
+* Open the CloudFront Console, go to the AWS Management Console, and navigate to the CloudFront service. 
 * Click on "Create Distribution".
 * Choose "Web" as the delivery method (it's the default).
 * Click "Get Started".
@@ -16,13 +16,13 @@ CREATE THE CLOUDFRONT DISTRIBUTION
 CONFIGURE THE DISTRIBUTION
 * Origin Domain Name: Select your S3 bucket from the dropdown list (http://kelz-static-website-hosting-s3.s3-website-us-east-1.amazonaws.com).
 
-* Viewer Protocol Policy: Select "Redirect HTTP to HTTPS" to enforce HTTPS. This make the connection secure.
+* Viewer Protocol Policy: Select "Redirect HTTP to HTTPS" to enforce HTTPS. This makes the connection secure.
 
 * Allowed HTTP Methods: Choose "GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE" to allow necessary HTTP methods.
 
 DISTRIBUTION SETTINGS:
 
-* Alternate Domain Names (CNAMEs): Enter your custom domain name - We wont use this since we did not register a custom domain name for the website.
+* Alternate Domain Names (CNAMEs): Enter your custom domain name - We won't use this since we did not register a custom domain name for the website.
 
 * SSL Certificate: We won't use this since we do not have a custom domain name for our website.
 
@@ -33,9 +33,9 @@ Click "Create Distribution" at the bottom of the page.
 
 TESTING AND VALIDATION
 * Wait for CloudFront to deploy.
-It may take some time (typically up to 15-30 minutes) for CloudFront to deploy globally.
+It may take some time (typically up to 15-30 minutes) for CloudFront to deploy globally. A new Distribution Domain Name from CloudFront will be created for the website. Since we are not using a custom domain name, CloudFront will generate a default one for us. (https://d3t7cledv06shm.cloudfront.net)
 
-* Access your website using the CloudFront domain name and ensure the website loads correctly over HTTPS.
+* Access your website using the CloudFront Distribution Domain Name (https://d3t7cledv06shm.cloudfront.net) and ensure the website loads correctly over HTTPS. You should see a padlock icon before the URL.
 
 * Test different pages and functionality to confirm everything is working as expected.
 
